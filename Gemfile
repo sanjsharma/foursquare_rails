@@ -31,6 +31,7 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
 # gem 'unicorn'
+gem 'thin', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -49,5 +50,6 @@ gem 'bootstrap-sass-extras'
 gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-foursquare'
 gem 'tzinfo-data'
 gem 'validates_formatting_of'

@@ -260,4 +260,8 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, "", ENV['FACEBOOK_SECRET_ID']
+  config.omniauth :foursquare, "QQ1TRB4HNSTM0KSBMIZTRMK0I35KZLKE4CKBGNXYJKNFS2FK", "2RLHVC2EIYCOZEEG5MSIYLNMHBKIN0VRAZYMV5QWAKKUBENY"
+  # Rails.application.config.middleware.use OmniAuth::Builder do
+  #   provider :foursquare, "QQ1TRB4HNSTM0KSBMIZTRMK0I35KZLKE4CKBGNXYJKNFS2FK", "2RLHVC2EIYCOZEEG5MSIYLNMHBKIN0VRAZYMV5QWAKKUBENY" 
+  # end
 end
