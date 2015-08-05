@@ -62,6 +62,12 @@ GEM
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.10.0)
+      faraday (>= 0.7.4, < 0.10)
+    foursquare2 (2.0.2)
+      faraday (~> 0.8)
+      faraday_middleware (>= 0.8)
+      hashie (>= 1.0, < 4.0.0)
     hashie (3.4.2)
     hike (1.2.3)
     i18n (0.7.0)
@@ -186,6 +192,7 @@ DEPENDENCIES
   bundler
   coffee-rails (~> 4.0.0)
   devise!
+  foursquare2
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

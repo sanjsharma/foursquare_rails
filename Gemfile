@@ -44,6 +44,8 @@ gem 'spring',        group: :development
 
 gem 'bundler'
 
+gem 'foursquare2'
+
 group :development do
   gem 'pry-rails'
 end
