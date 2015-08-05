@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  # get 'static_pages/welcome'
+
   devise_for :users, controllers: {registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords", omniauth_callbacks: "users/omniauth_callbacks"}, skip: [:sessions, :registrations]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'static_pages#welcome'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
