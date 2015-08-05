@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
     return user if user
 
     # The User was not found and we need to create them
+    puts auth
     User.create(name:     auth[:extra][:raw_info][:name],
                 provider: auth.provider,
                 uid:      auth.uid,
