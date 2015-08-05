@@ -32,7 +32,7 @@ gem 'spring',        group: :development
 
 # Use unicorn as the app server
 # gem 'unicorn'
-gem 'thin', group: :development
+# gem 'thin', group: :development
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
