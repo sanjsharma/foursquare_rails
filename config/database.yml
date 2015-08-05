@@ -24,6 +24,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  database: foursquare_rails_production
-  username: foursquare_rails
-  password: <%= ENV['FOURSQUARE_RAILS_DATABASE_PASSWORD'] %>
+  database: foursquarerails_production
+  username: foursquarerails
+  password: <%= ENV['FOURSQUARERAILS_DATABASE_PASSWORD'] %>
