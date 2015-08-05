@@ -4,7 +4,7 @@
 	<%=@venue_history%>
 <% else%>
   <h1>Hello Guys</h1>
-  <p>Get connected with <strong>Foursquare History Tracker</strong> and see your checkins plotted in google maps. Does'nt it sound interesting to you. Come on guys hurry and signup right away and feel the places you visted</p>
+  <p>Get connected with <strong>Foursquare History Tracker</strong> and see your checkins plotted in google maps. Doesn't it sound interesting to you. Hurry and signup right away and feel the places you visted</p>
   <p> <%= link_to 'Log in with Foursquare',user_omniauth_authorize_path(:foursquare), class: "btn btn-primary btn-lg"%> </p>
   <p class="welcome_map">
   	<img src="<%= asset_path( 'map.jpg' ) %>" />
