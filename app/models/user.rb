@@ -46,5 +46,38 @@ class User < ActiveRecord::Base
                 token:    auth[:credentials][:token])
   end
 
+  def venue_history
+    client = initilize_client
+    if client != ""
+      venue_history = client.user_venue_history(options = {}).items
+      map_hash = Gmaps4rails.build_markers(venue_history) do |venue, marker|
+        marker.lat venue.venue.location.lat
+        marker.lng venue.venue.location.lng
+        marker.infowindow venue.venue.name
+      end
+    else
+      []
+    end
+  end
+
+  def user_details
+    client = initilize_client
+    client.user(self.uid, options = {})
+  end
+
+  def profile_pic_url
+    photo_hash = user_details.photo
+    url = photo_hash.prefix+"original"+photo_hash.suffix
+  end
+
+  protected
+  def initilize_client
+    if self and self.token
+      Foursquare2::Client.new(:oauth_token => self.token, :api_version => '20120609')
+    else
+      ""
+    end
+  end
+
 
 end

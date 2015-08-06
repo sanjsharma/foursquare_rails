@@ -1,17 +1,8 @@
 class StaticPagesController < ApplicationController
   def welcome
   	if current_user and current_user.token
-	  	client = Foursquare2::Client.new(:oauth_token => current_user.token, :api_version => '20120609')
-	  	venue_history = client.user_venue_history(options = {}).items
-
-	  	@map_hash = Gmaps4rails.build_markers(venue_history) do |venue, marker|
-			  marker.lat venue.venue.location.lat
-			  marker.lng venue.venue.location.lng
-			  marker.infowindow venue.venue.name
-			end
-
-			photo_details = client.user(current_user.uid, options = {}).photo
-	  	@photo = photo_details.prefix+"original"+photo_details.suffix
+	  	@map_hash = current_user.venue_history
+	  	@photo = current_user.profile_pic_url
 	  end
   end
 end
