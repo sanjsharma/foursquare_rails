@@ -46,6 +46,10 @@ gem 'bundler'
 
 gem 'foursquare2'
 
+gem 'gmaps4rails'
+
+gem 'underscore-rails'
+
 group :development do
   gem 'pry-rails'
 end

@@ -1,15 +1,39 @@
 <div class="jumbotron">
-<% if current_user and current_user.token%>
-  <h1>Your Venue History</h1>
-	<%=@venue_history%>
-<% else%>
-  <h1>Hello Guys</h1>
-  <p>Get connected with <strong>Foursquare History Tracker</strong> and see your checkins plotted in google maps. Doesn't it sound interesting to you. Hurry and signup right away and feel the places you visted</p>
-  <p> <%= link_to 'Log in with Foursquare',user_omniauth_authorize_path(:foursquare), class: "btn btn-primary btn-lg"%> </p>
-  <p class="welcome_map">
-  	<img src="<%= asset_path( 'map.jpg' ) %>" />
+	<% if current_user and current_user.token%>
+		<h1>Your Venue History</h1>
+		
+		<div style='width: 1000px;'>
+
+	    <div id="multi_markers" style='width: 1000px; height: 600px;'></div>
+
+		</div>
+
+	<% else%>
+	<h1>Hello Guys</h1>
+	<p>Get connected with <strong>Foursquare History Tracker</strong> and see your checkins plotted in google maps. Doesn't it sound interesting to you. Hurry and signup right away and feel the places you visted</p>
+	<p> <%= link_to 'Log in with Foursquare',user_omniauth_authorize_path(:foursquare), class: "btn btn-primary btn-lg"%> </p>
+	<p class="welcome_map">
+		<img src="<%= asset_path( 'map.jpg' ) %>" />
 	</p>
-<% end %>
+	<% end %>
 </div>
+
+<% content_for :javascripts do %>
+<script type="text/javascript">
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'multi_markers'}}, function(){
+  var markers = handler.addMarkers(
+  		<%=raw @map_hash.to_json %>
+  	);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
+
+//$(multi_markers).data("url");
+
+</script>
+<% end %>
 
 
