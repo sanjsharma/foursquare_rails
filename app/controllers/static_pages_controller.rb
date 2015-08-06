@@ -10,7 +10,8 @@ class StaticPagesController < ApplicationController
 			  marker.infowindow venue.venue.name
 			end
 
-			@photo = client.user_photos(options = {})
+			photo_details = client.user(current_user.uid, options = {}).photo
+	  	@photo = photo_details.prefix+"original"+photo_details.suffix
 	  end
   end
 end
