@@ -9,6 +9,8 @@ class StaticPagesController < ApplicationController
 			  marker.lng venue.venue.location.lng
 			  marker.infowindow venue.venue.name
 			end
+
+			@photo = client.user_photos(options = {})
 	  end
   end
 end
